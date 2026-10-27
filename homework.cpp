@@ -60,14 +60,77 @@ int main()
 ### 题目2：电影打分评语
 
 **解答：代码**
-```cpp
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int score;
+
+    cout << "请输入电影打分（0~10）：";
+    cin >> score;
+
+    if (score >= 9 && score <= 10)
+    {
+        cout << "你认为电影经典" << endl;
+    }
+    else if (score >= 7 && score <= 8)
+    {
+        cout << "你认为电影非常好" << endl;
+    }
+    else if (score >= 5 && score <= 6)
+    {
+        cout << "你认为电影一般" << endl;
+    }
+    else if (score >= 0 && score < 5)
+    {
+        cout << "你认为电影烂片" << endl;
+    }
+    else
+    {
+        cout << "分数输入有误，请输入0~10之间的整数" << endl;
+    }
+
+    return 0;
+}
 
 ![题目2运行结果]()
 
 ### 题目3：判断回文数
 
 **解答：代码**
-```cpp
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n;
+    cout << "请输入一个整数：";
+    cin >> n;
+
+    if (n < 0)
+    {
+        cout << n << " 不是回文数" << endl;
+        return 0;
+    }
+
+    int original = n;   
+    int reversed = 0;   
+
+    while (n > 0)
+    {
+        int digit = n % 10;              
+        reversed = reversed * 10 + digit; 
+        n = n / 10;                       
+    }
+
+    if (original == reversed)
+        cout << original << " 是回文数" << endl;
+    else
+        cout << original << " 不是回文数" << endl;
+
+    return 0;
+}
 
 
 
@@ -76,7 +139,45 @@ int main()
 ### 题目4：三位水仙花数
 
 **解答：代码**
-```cpp
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n;
+    cout << "请输入一个三位数：";
+    cin >> n;
+
+    if (n < 100 || n > 999)
+    {
+        cout << "输入有误，请输入100~999之间的三位数" << endl;
+    }
+    else
+    {
+        int a = n / 100;
+        int b = n / 10 % 10;
+        int c = n % 10;
+
+        if (a * a * a + b * b * b + c * c * c == n)
+            cout << n << " 是水仙花数" << endl;
+        else
+            cout << n << " 不是水仙花数" << endl;
+    }
+
+    cout << "\n所有三位水仙花数：" << endl;
+    for (int i = 100; i <= 999; i++)
+    {
+        int a = i / 100;
+        int b = i / 10 % 10;
+        int c = i % 10;
+
+        if (a * a * a + b * b * b + c * c * c == i)
+            cout << i << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
 
 
 
@@ -85,7 +186,28 @@ int main()
 ### 题目5：数列 a, aa, aaa... 求和
 
 **解答：代码**
-```cpp
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n, a;
+    cout << "请输入n和a：";
+    cin >> n >> a;
+
+    int term = 0;
+    int sum = 0;
+
+    for (int i = 1; i <= n; i++)
+    {
+        term = term * 10 + a;
+        sum = sum + term;
+    }
+
+    cout << "数列和为：" << sum << endl;
+
+    return 0;
+}
 
 
 
@@ -95,7 +217,22 @@ int main()
 ### 题目6：乘法口诀表
 
 **解答：代码**
-```cpp
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    for (int i = 1; i <= 9; i++)
+    {
+        for (int j = 1; j <= i; j++)
+        {
+            cout << j << "*" << i << "=" << j * i << "\t";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
 
 
 
@@ -104,7 +241,23 @@ int main()
 ### 题目7：兔子数量
 
 **解答：代码**
-```cpp
+#include<iostream>
+using namespace std;
+
+int main(){
+    long long a = 1,b = 1;
+
+    cout<<"Month 1:"<<a<<"pairs"<<endl;
+    cout<<"Month 2:"<<b<<"pairs"<<endl;
+
+    for(int month = 3;month <= 20;month+=1){
+        long long c = a + b;
+        cout<<"Month "<<month<<":"<<c<<"pairs"<<endl;
+        a = b;
+        b = c;
+    }
+    return 0;
+}
 
 
 ![题目7运行结果]()
@@ -112,7 +265,22 @@ int main()
 ### 题目8：猴子吃桃
 
 **解答：代码**
-```cpp
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int peach = 1;
+
+    for (int day = 9; day >= 1; day--)
+    {
+        peach = (peach + 1) * 2;
+    }
+
+    cout << "第一天共摘了 " << peach << " 个桃子" << endl;
+
+    return 0;
+}
 
 ![题目8运行结果]()
 
